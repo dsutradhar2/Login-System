@@ -1,18 +1,17 @@
 def usernameformat(user):
     if user == ' ':
         print('Username should not be empty')
-        print('flag1')
         return 0
     if len(user.split()) > 1:
         print('Username should not contain space')
-        print('flag2')
         return 0
     if len(user) < 6:
         print('Username should not be less than 6 charaters')
-        print('flag6')
+        return 0
+    if len(user) > 15:
+        print('Username should not be more than 15 charaters')
         return 0
     else:
-        print('Username accepted')
         return 1
 
 def passwordformat(pw):
@@ -21,6 +20,9 @@ def passwordformat(pw):
         return 0
     if len(pw) < 6:
         print('Password entered is short. Try again')
+        return 0
+    if len(pw) > 10:
+        print('Password entered should be less than 10 characters. Try again')
         return 0
     if pw.isalpha():
         print('Password must contain at least one number')

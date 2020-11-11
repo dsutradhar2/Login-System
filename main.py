@@ -21,7 +21,7 @@ while (1):
     elif usertype == '3':
         exit(1)
     else:
-        print('Invalid choice!! Are you blind? Try again')
+        print('Invalid choice!! \nTry again')
         continue
 while 1:
     print('Are you registered?')
@@ -36,40 +36,48 @@ while 1:
         username = input()
         print('Password:')
         password = input()
-        obj = authorization.login(username, password, usertype)
+        obj = authorization.login(username, usertype,password)
         if obj.read_password():
             print('Login Successful !')
             break
         else:
-            print('Wrong password \nTry again')
+            print('Wrong username or password \n Try again')
     if x == '2':
         print('Please Register first.')
         while 1:
             print('Choose Username')
-            username=input()
+            username = input()
             if username_password_format.usernameformat(username):
-                count=10
-                while 1:
-                    count += 1
-                    if count == 6:
-                        print('Tried too many times !! \nPlease restart \nSystem will now exit..')
-                        exit(1)
-                    print('Enter password')
-                    password = input()
-                    if username_password_format.passwordformat(password):
-                        print ('Re-enter password')
-                        if input() == password:
-                            obj = authorization.signup(username, password, usertype)
-                            print('Registration Succesfull !')
-                            break
+                #log = authorization.login (username,usertype)
+                if not authorization.login.read_username(usertype, username):
+                    count = 0
+                    while 1:
+                        count += 1
+                        if count == 6:
+                            print('Tried too many times !! \nPlease restart \nSystem will now exit..')
+                            exit(1)
+                        print('Enter password')
+                        password = input()
+                        if username_password_format.passwordformat(password):
+                            print ('Re-enter password')
+                            if input() == password:
+                                obj = authorization.signup(username,  usertype, password)
+                                print('Registration Succesfull !')
+                                break
+                            else:
+                                print('password mismatch \n try again')
+                                continue
                         else:
-                            print('password mismatch \n try again')
                             continue
-                    else:
-                        continue
+                else:
+                    print('Username already exist !')
+                    continue
             else:
                 continue
             break
+    else:
+        print('Invalid choice!! \nTry again')
+        continue
 
 
 

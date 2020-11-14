@@ -15,6 +15,9 @@ def usernameformat(user):                                                # this 
         return 1
 
 def passwordformat(pw):                                                    # this function checks if the password1 is in required format or not
+    if pw=='':
+        print('Password should not be empty')
+        return 0
     if len(pw.split()) > 1:
         print('Password should not contain space')
         return 0

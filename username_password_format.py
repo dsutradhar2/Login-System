@@ -1,4 +1,4 @@
-def usernameformat(user):
+def usernameformat(user):                                                # this function checks if the username is in required format or not
     if user == ' ':
         print('Username should not be empty')
         return 0
@@ -14,7 +14,7 @@ def usernameformat(user):
     else:
         return 1
 
-def passwordformat(pw):
+def passwordformat(pw):                                                    # this function checks if the password1 is in required format or not
     if len(pw.split()) > 1:
         print('Password should not contain space')
         return 0

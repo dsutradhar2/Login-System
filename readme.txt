@@ -37,3 +37,4 @@
 		4. Results obtained in step 2 and 3 are concatenated with '_' in between.
 	4. If it a number, it is converted to its ASCII code and 10 is added to it.
 	5. Results obtained in step 2,3 and 4 are concatenated with '@' in between.
+12. Please run the "main.py" file.

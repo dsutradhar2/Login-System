@@ -19,7 +19,7 @@ class Hashing:                                                   # this class co
     def _gethashpass (passw):                                    # protected function that encrypts the password
         password = ''
         for i in passw:
-            if ord(i)>64 and ord(i)<91:
+            if ord(i) > 64 and ord(i) < 91:
                 password += str((ord(i) // 5) + 10) + '_' + str(ord(i) % 5) + '@'
                 continue
             if ord(i) > 96 and ord(i) < 123:
@@ -65,14 +65,25 @@ class login (Hashing):                                          # this class che
 
 
 class signup(Hashing):                                          # this class registers the new user. Inherits 'Hashing' class
-    def __init__(self, username, usertype, password):
-        self.__username = self._gethashuser(username)
-        self.__password = self._gethashpass(password)
+    def __init__(self, details, usertype):                      #details=[username,password,name,roll,department]
+        self.__username = self._gethashuser(details[0])
+        self.__password = self._gethashpass(details[1])
+        self.name = details[2]
+        self.roll = details[3]
+        self.department = details[4]
         self.usertype = usertype
         f = open(usertype + '.txt', 'a')                        # opens the file
         f.write(self.__username + ' ')                          # writes the encrypted username
         f.write(self.__password)                                # writes the encrypted password
         f.write('\n')                                           # enters new line in the file
         f.close()                                               # closes the file
-        f = open(self.__username, 'w')                          # creates a new file by the name of the encrpyted username
-        f.close()                                               # closes the file
+        f = open(self.__username, 'a')                          # creates a new file by the name of the encrpyted username
+        f.write(self.name)
+        f.write('\n')
+        f.write(self.roll)
+        f.close()
+        f = open(details[4] + '.txt', 'a')  # closes the file
+        f.write(self.name)
+        f.write('/')
+        f.write(self.roll)
+        f.close()

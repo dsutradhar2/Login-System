@@ -27,21 +27,22 @@ def getsignup(usertype):
                             details.append(password)
                             print('Enter your name:')
                             details.append(input())
-                            print('Enter your roll number:')
-                            details.append(input())
-                            department=''
-                            print('Choose your branch \n1. Electrical Engineering \n2. Mechanical Engineering')
-                            print('3. Computer Science and engineering \n4. Electronics and Communication Engineering')
-                            i = input()
-                            if i == '1':
-                                department = 'EE'
-                            elif i == '2':
-                                department='ME'
-                            elif i == '3':
-                                department='CSE'
-                            elif i == '4':
-                                department='ECE'
-                            details.append(department)
+                            if usertype == 'students':
+                                print('Enter your roll number:')
+                                details.append(input())
+                                department=''
+                                print('Choose your branch \n1. Electrical Engineering \n2. Mechanical Engineering')
+                                print('3. Computer Science and engineering \n4. Electronics and Communication Engineering')
+                                i = input()
+                                if i == '1':
+                                    department = 'EE'
+                                elif i == '2':
+                                    department='ME'
+                                elif i == '3':
+                                    department='CSE'
+                                elif i == '4':
+                                    department='ECE'
+                                details.append(department)
                             obj = authorization.signup(details, usertype)    # if password matched it sign up the user by calling signup class
                             print('Registration Successful !')
                             break

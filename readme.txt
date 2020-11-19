@@ -1,7 +1,9 @@
 1. This is a offline login system of a library programmed in Python.
 2. The users are either students or librarian.
 3. The students and librarian can create an account in the system.
-4. When a user creates an account a new file is created with the name of user's encryted username.
+4. When a user creates an account:
+	1. If its a student, a new file is created with the name of user's encryted username.
+	2. The new file will store that student's name, roll and department.
 5. The students and librarian can login to their already existing accont.
 6. For a librarian to use this system he has enter a special key. That is "library".
 7. Rules for username:

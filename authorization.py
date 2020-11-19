@@ -69,21 +69,27 @@ class signup(Hashing):                                          # this class reg
         self.__username = self._gethashuser(details[0])
         self.__password = self._gethashpass(details[1])
         self.name = details[2]
-        self.roll = details[3]
-        self.department = details[4]
         self.usertype = usertype
+        if usertype == 'students':
+            self.roll = details[3]
+            self.department = details[4]
         f = open(usertype + '.txt', 'a')                        # opens the file
         f.write(self.__username + ' ')                          # writes the encrypted username
         f.write(self.__password)                                # writes the encrypted password
         f.write('\n')                                           # enters new line in the file
         f.close()                                               # closes the file
-        f = open(self.__username, 'a')                          # creates a new file by the name of the encrpyted username
-        f.write(self.name)
-        f.write('\n')
-        f.write(self.roll)
-        f.close()
-        f = open(details[4] + '.txt', 'a')  # closes the file
-        f.write(self.name)
-        f.write('/')
-        f.write(self.roll)
-        f.close()
+        if usertype == 'students':
+            f = open(self.__username, 'a')                          # creates a new file by the name of the encrpyted username
+            f.write(self.name)
+            f.write('\n')
+            f.write(self.roll)
+            f.write('\n')
+            f.write(self.department)
+            f.write('\n')
+            f.close()
+            f = open(details[4] + '.txt', 'a')  # closes the file
+            f.write(self.name)
+            f.write('/')
+            f.write(self.roll)
+            f.write('\n')
+            f.close()

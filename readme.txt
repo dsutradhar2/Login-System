@@ -2,7 +2,7 @@
 2. The users are either students or librarian.
 3. The students and librarian can create an account in the system.
 4. When a user creates an account:
-	1. If its a student, a new file is created with the name of user's encryted username.
+	1. If its a student, a new file is created with the name of user's hashed username.
 	2. The new file will store that student's name, roll and department.
 5. The students and librarian can login to their already existing accont.
 6. For a librarian to use this system he has enter a special key. That is "library".
@@ -18,14 +18,14 @@
 	5. Your password must contain atleast one lower case alphabet.
 	6. Your password must contain atleast one upper case alphabet.
 	
-9. The username and password entered are kept in a txt file in encrypted form.
-10. Rules of encrpytion of username is:
+9. The username and password entered are kept in a txt file in hashed form.
+10. Rules of hashing of username is:
 	1. First character is converted to its ASCII code.
 	2. The ASCII code id divided bt 10.
 	3. The quotient and remainder is concatenated with the sign '_' in between.
 	4. These steps are repeated for all the characters.
 	5. The string obtained for each character is concatenated with each other with the sign '#' in between.
-11.Rules of encrpytion of password is:
+11.Rules of hashing of password is:
 	1. The characters are converted to its ASCII code.	
 	2. If it a uppercase alphabet:
 		1. The character is converted to its ASCII code.

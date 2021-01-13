@@ -1,6 +1,11 @@
 import authorization
 import username_password_format
-def getsignup(usertype):
+def \
+
+
+
+
+        4getsignup(usertype):
     print('Please Register first.')
     details = []
     while 1:
@@ -9,7 +14,7 @@ def getsignup(usertype):
         if username_password_format.usernameformat(username):                # checks if input username is in required format or not
             log = authorization.login(username, usertype)                    # creates an object to call the function to check if username already exists
             if not authorization.login.read_username(usertype, username):    # calls the function to check if username already exists
-# this blocks executes if username doesnt already exists
+            # this blocks executes if username doesnt already exists
                 details.append(username)
                 count = 0                                                    # initialize count to count number of tries a user took to set new passwoed
                 while 1:

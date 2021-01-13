@@ -1,3 +1,6 @@
+from mysql_connection import *
+mydb = dbConnection()
+
 class Hashing:                                                   # this class contains the function that encrypts the username and password
     #@staticmethod
     #def _getuser(hashuser):                                      # this function decrypts the username (not used in program)
@@ -48,10 +51,13 @@ class login (Hashing):                                          # this class che
 
     @classmethod
     def read_username(cls, type, user):                         # checks if the username given by user is already registered or not
-        f = open(type+'.txt', 'r')
-        for line in f:
-            lines = line.split()
-            if lines[0] == cls._gethashuser(user):
+        encoded_name = cls._gethashuser(user)
+        sql2 = "SELECT name from user_name;"
+        mycursor = mydb.cursor()
+        mycursor.execute(sql2)
+        names = mycursor.fetchall()
+        for name in names:
+            if name == encoded_name:
                 return True
         return False
 

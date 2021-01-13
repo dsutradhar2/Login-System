@@ -1,11 +1,6 @@
 import authorization
 import username_password_format
-def \
-
-
-
-
-        4getsignup(usertype):
+def getsignup(usertype):
     print('Please Register first.')
     details = []
     while 1:

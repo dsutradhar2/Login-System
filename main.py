@@ -2,8 +2,10 @@ import authorization
 import username_password_format
 from signup_details import *
 from mysql_connection import *
+import mysql.connector
 
 mydb = dbConnection()
+mycursor = mydb.cursor()
 while (1):                                                              # Asks the user if he is a student or a librarian
     print('Who Are You?')
     print('Press 1 for Student')

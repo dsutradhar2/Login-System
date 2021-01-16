@@ -25,7 +25,9 @@ def getsignup(usertype):
                         if input() == password:                              # Checks if re entered password matches or not
                             print('Password Accepted')
                             details.append(password)
-                            print('Enter your name:')
+                            print('Enter your first name:')
+                            details.append(input())
+                            print('Enter your last name:')
                             details.append(input())
                             if usertype == 'students':
                                 print('Enter your roll number:')

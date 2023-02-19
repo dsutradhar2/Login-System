@@ -1,41 +1,43 @@
-from tkinter import  messagebox
 def usernameformat(user):                                                # this function checks if the username is in required format or not
     if user == ' ':
-        messagebox.showerror(title="Error !!", message="Username should not be empty")
-        return
+        print('Username should not be empty')
+        return 0
     if len(user.split()) > 1:
-        messagebox.showerror(title="Error !!", message="Username should not contain space")
-        return
+        print('Username should not contain space')
+        return 0
     if len(user) < 6:
-        messagebox.showerror(title="Error !!", message="Username should not be less than 6 charaters")
+        print('Username should not be less than 6 charaters')
         return 0
     if len(user) > 15:
-        messagebox.showerror(title="Error !!", message="Username should not be more than 15 charaters")
-        return
-
+        print('Username should not be more than 15 charaters')
+        return 0
+    else:
+        return 1
 
 def passwordformat(pw):                                                    # this function checks if the password1 is in required format or not
     if pw=='':
-        messagebox.showerror(title="Error !!", message="Password should not be empty")
-        return
+        print('Password should not be empty')
+        return 0
     if len(pw.split()) > 1:
-        messagebox.showerror(title="Error !!", message="Password should not contain space")
-        return
+        print('Password should not contain space')
+        return 0
     if len(pw) < 6:
-        messagebox.showerror(title="Error !!", message="Password entered is short. Try again")
-        return
+        print('Password entered is short. Try again')
+        return 0
     if len(pw) > 10:
-        messagebox.showerror(title="Error !!", message="Password entered should be less than 10 characters. Try again")
-        return
+        print('Password entered should be less than 10 characters. Try again')
+        return 0
     if pw.isalpha():
-        messagebox.showerror(title="Error !!", message="Password must contain at least one number")
-        return
+        print('Password must contain at least one number')
+        return 0
     if pw.isdigit():
-        messagebox.showerror(title="Error !!", message="Your password must contain atleast one alphabet")
-        return
+        print('Your password must contain atleast one alphabet')
+        return 0
     if pw.isupper():
-        messagebox.showerror(title="Error !!", message="Your password must contain atleast one lower case alphabet")
-        return
+        print('Your password must contain atleast one lower case alphabet')
+        return 0
     if pw.islower():
-        messagebox.showerror(title="Error !!", message="Your password must contain atleast one upper case alphabet")
-        return
+        print('Your password must contain atleast one upper case alphabet')
+        return 0
+    else:
+        return 1
